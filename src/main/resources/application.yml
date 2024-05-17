@@ -1,0 +1,29 @@
+server:
+  port: 9987
+
+spring:
+  application:
+    name: SpringbootFlowManager
+  # 服务器配置
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://192.168.1.200:3306/flowable_db?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&&zeroDateTimeBehavior=convertToNull&useSSL=true&allowMulQueries=true&nullCatalogMeansCurrent=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # JPA 配置
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+# Flowable 配置
+flowable:
+  rest:
+    app:
+      admin:
+        user-id: admin
+        password: test
+        first-name: Admin
+        last-name: User

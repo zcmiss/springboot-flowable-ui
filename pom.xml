@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.13</version>
+        <version>2.7.18</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zc</groupId>
@@ -15,6 +15,7 @@
     <description>SpringbootFlowManager</description>
     <properties>
         <java.version>8</java.version>
+        <flowable.version>6.8.0</flowable.version>
     </properties>
     <dependencies>
         <!-- Spring Boot 依赖项 -->
@@ -34,6 +35,12 @@
 
         <!-- Flowable 依赖项 -->
 
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+
         <!--
          描述：此依赖项包括 Flowable 的核心流程引擎功能，允许在 Spring Boot 应用程序中运行 BPMN 工作流。
             用途：用于启动和管理业务流程，包括流程定义、实例、任务、历史等。
@@ -41,7 +48,7 @@
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-process</artifactId>
-            <version>6.8.0</version>
+            <version>${flowable.version}</version>
         </dependency>
         <!--
           描述：此依赖项提供了 Flowable REST API 的 Spring Boot 集成。
@@ -50,7 +57,7 @@
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-rest</artifactId>
-            <version>6.8.0</version>
+            <version>${flowable.version}</version>
         </dependency>
 
         <!-- Flowable UI 依赖项 -->
@@ -61,7 +68,7 @@
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-admin</artifactId>
-            <version>6.8.0</version>
+            <version>${flowable.version}</version>
         </dependency>
         <!--
         用途：这个依赖项提供了 Flowable IDM（Identity Management）UI 应用的 Spring Boot 集成。
@@ -70,7 +77,7 @@
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-idm</artifactId>
-            <version>6.8.0</version>
+            <version>${flowable.version}</version>
         </dependency>
         <!--
         用途：这个依赖项提供了 Flowable Modeler UI 应用的 Spring Boot 集成。
@@ -79,7 +86,7 @@
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-modeler</artifactId>
-            <version>6.8.0</version>
+            <version>${flowable.version}</version>
         </dependency>
         <!--
         用途：这个依赖项提供了 Flowable Task UI 应用的 Spring Boot 集成。
@@ -88,7 +95,7 @@
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-task</artifactId>
-            <version>6.8.0</version>
+            <version>${flowable.version}</version>
         </dependency>
 
     </dependencies>
