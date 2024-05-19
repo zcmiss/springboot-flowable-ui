@@ -17,13 +17,13 @@ spring:
     hibernate:
       ddl-auto: update
 
-
-# Flowable 配置
 flowable:
-  rest:
-    app:
-      admin:
-        user-id: admin
-        password: test
-        first-name: Admin
-        last-name: User
+  # Flowable启动时自动创建和更新数据库表
+  database-schema-update: true
+  #关闭定时任务JOB
+  async-executor-activate: false
+
+# 日志信息
+logging:
+  level:
+    org.flowable: debug
