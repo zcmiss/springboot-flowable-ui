@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.18</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.zc</groupId>
+    <artifactId>SpringbootFlowManager</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>SpringbootFlowManager</name>
+    <description>SpringbootFlowManager</description>
+    <properties>
+        <java.version>8</java.version>
+        <flowable.version>6.8.0</flowable.version>
+    </properties>
+    <dependencies>
+        <!-- Spring Boot 依赖项 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.2.0</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Flowable 依赖项 -->
+
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+
+        <!--
+         描述：此依赖项包括 Flowable 的核心流程引擎功能，允许在 Spring Boot 应用程序中运行 BPMN 工作流。
+            用途：用于启动和管理业务流程，包括流程定义、实例、任务、历史等。
+         -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-process</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+        <!--
+          描述：此依赖项提供了 Flowable REST API 的 Spring Boot 集成。
+             用途：使得可以通过 RESTful 接口与 Flowable 引擎交互，进行流程管理操作，如启动流程、查询任务等。
+        -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-rest</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+
+        <!-- Flowable UI 依赖项 -->
+        <!--
+        用途：这个依赖项提供了 Flowable Admin UI 应用的 Spring Boot 集成。
+        Flowable Admin UI 用于管理和监控 Flowable 引擎的运行状态、查看流程实例、任务、数据库表等管理功能。
+        -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-ui-admin</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+        <!--
+        用途：这个依赖项提供了 Flowable IDM（Identity Management）UI 应用的 Spring Boot 集成。
+        Flowable IDM UI 用于用户和组的管理，包括用户的创建、修改、删除以及角色和权限的分配。
+        -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-ui-idm</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+        <!--
+        用途：这个依赖项提供了 Flowable Modeler UI 应用的 Spring Boot 集成。
+         Flowable Modeler UI 用于创建和编辑 BPMN 流程模型，是一个图形化的流程设计工具。
+         -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-ui-modeler</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+        <!--
+        用途：这个依赖项提供了 Flowable Task UI 应用的 Spring Boot 集成。
+        Flowable Task UI 用于管理和执行任务，用户可以在这个界面中查看和处理分配给他们的任务。
+        -->
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-ui-task</artifactId>
+            <version>${flowable.version}</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <builder>paketobuildpacks/builder-jammy-base:latest</builder>
+                    </image>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

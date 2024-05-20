@@ -3,14 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>org.flowable</groupId>
+        <artifactId>flowable-ui-parent</artifactId>
+        <version>6.8.0</version>
     </parent>
     <groupId>com.zc</groupId>
     <artifactId>SpringbootFlowManager</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>SpringbootFlowManager</name>
     <description>SpringbootFlowManager</description>
     <properties>
@@ -18,101 +16,244 @@
         <flowable.version>6.8.0</flowable.version>
     </properties>
     <dependencies>
-        <!-- Spring Boot 依赖项 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
         <!-- Flowable 依赖项 -->
-
-        <dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-spring-boot-starter</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>
-
-        <!--
-         描述：此依赖项包括 Flowable 的核心流程引擎功能，允许在 Spring Boot 应用程序中运行 BPMN 工作流。
-            用途：用于启动和管理业务流程，包括流程定义、实例、任务、历史等。
-         -->
-        <dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-spring-boot-starter-process</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>
-        <!--
-          描述：此依赖项提供了 Flowable REST API 的 Spring Boot 集成。
-             用途：使得可以通过 RESTful 接口与 Flowable 引擎交互，进行流程管理操作，如启动流程、查询任务等。
-        -->
-        <dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-spring-boot-starter-rest</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>
-
-        <!-- Flowable UI 依赖项 -->
-        <!--
-        用途：这个依赖项提供了 Flowable Admin UI 应用的 Spring Boot 集成。
-        Flowable Admin UI 用于管理和监控 Flowable 引擎的运行状态、查看流程实例、任务、数据库表等管理功能。
-        -->
-        <dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-spring-boot-starter-ui-admin</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>
-        <!--
-        用途：这个依赖项提供了 Flowable IDM（Identity Management）UI 应用的 Spring Boot 集成。
-        Flowable IDM UI 用于用户和组的管理，包括用户的创建、修改、删除以及角色和权限的分配。
-        -->
-        <dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-spring-boot-starter-ui-idm</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>
-        <!--
-        用途：这个依赖项提供了 Flowable Modeler UI 应用的 Spring Boot 集成。
-         Flowable Modeler UI 用于创建和编辑 BPMN 流程模型，是一个图形化的流程设计工具。
-         -->
-        <dependency>
-            <groupId>org.flowable</groupId>
-            <artifactId>flowable-spring-boot-starter-ui-modeler</artifactId>
-            <version>${flowable.version}</version>
-        </dependency>
-        <!--
-        用途：这个依赖项提供了 Flowable Task UI 应用的 Spring Boot 集成。
-        Flowable Task UI 用于管理和执行任务，用户可以在这个界面中查看和处理分配给他们的任务。
-        -->
         <dependency>
             <groupId>org.flowable</groupId>
             <artifactId>flowable-spring-boot-starter-ui-task</artifactId>
-            <version>${flowable.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-ui-admin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-ui-idm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-spring-boot-starter-ui-modeler</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+        <!--        <dependency>
+                    <groupId>org.springframework.kafka</groupId>
+                    <artifactId>spring-kafka</artifactId>
+                </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-properties-migrator</artifactId>
+        </dependency>
+
+        <!-- DATABASE -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.javacrumbs.json-unit</groupId>
+            <artifactId>json-unit-assertj</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- LDAP dependencies needed for testing purposes -->
+        <dependency>
+            <groupId>org.springframework.ldap</groupId>
+            <artifactId>spring-ldap-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.unboundid</groupId>
+            <artifactId>unboundid-ldapsdk</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
 
 
+    <!-- BUILD -->
     <build>
+
+        <finalName>flowable-ui</finalName>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <image>
-                        <builder>paketobuildpacks/builder-jammy-base:latest</builder>
-                    </image>
+                    <excludeArtifactIds>
+                        spring-boot-configuration-processor
+                    </excludeArtifactIds>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <configuration>
+                        <container>
+                            <appRoot>/app</appRoot>
+                            <ports>
+                                <port>8080</port>
+                            </ports>
+                            <environment>
+                                <JAVA_OPTS>-Xmx1024M</JAVA_OPTS>
+                                <SERVER_PORT>8080</SERVER_PORT>
+                            </environment>
+                            <user>flowable:flowable</user>
+                            <entrypoint>
+                                <entrypoint>/flowable-entrypoint.sh</entrypoint>
+                            </entrypoint>
+                            <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                        </container>
+                        <extraDirectories>
+                            <paths>src/main/jib</paths>
+                            <permissions>
+                                <permission>
+                                    <file>/flowable-entrypoint.sh</file>
+                                    <mode>555</mode> <!-- Read/execute for all -->
+                                </permission>
+                            </permissions>
+                        </extraDirectories>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
     </build>
+    <profiles>
+        <profile>
+            <id>postgresql</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <arguments>
+                                <argument>--spring.datasource.driver-class-name=org.postgresql.Driver</argument>
+                                <argument>--spring.datasource.url=jdbc:postgresql://localhost:5432/flowable</argument>
+                                <argument>--spring.datasource.username=flowable</argument>
+                                <argument>--spring.datasource.password=flowable</argument>
+                                <argument>--com.sun.management.jmxremote.port=4000</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>mysql</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.mysql</groupId>
+                    <artifactId>mysql-connector-j</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <arguments>
+                                <argument>--spring.datasource.driver-class-name=com.mysql.jdbc.Driver</argument>
+                                <argument>
+                                    --spring.datasource.url=jdbc:mysql://127.0.0.1:3306/flowable?characterEncoding=UTF-8&amp;serverTimezone=UTC
+                                </argument>
+                                <argument>--spring.datasource.username=flowable</argument>
+                                <argument>--spring.datasource.password=flowable</argument>
+                                <argument>--com.sun.management.jmxremote.port=4001</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>docker-deps</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
+                    <scope>compile</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+
+    </profiles>
 
 </project>
