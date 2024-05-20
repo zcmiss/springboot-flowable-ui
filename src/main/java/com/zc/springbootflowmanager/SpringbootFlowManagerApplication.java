@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author zengc
  * @date 2024/05/17
  */
-@ComponentScan(basePackages = {"com.zc.springbootflowmanager", "org.flowable.ui.application"})
+@ComponentScan(basePackages = {"org.flowable.ui.application", "com.zc.springbootflowmanager"})
 @SpringBootApplication
 public class SpringbootFlowManagerApplication {
 
